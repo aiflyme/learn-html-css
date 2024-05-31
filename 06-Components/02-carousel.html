@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel Component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="02-carousel.css" />
+  </head>
+  <body>
+    <div class="carousel">
+      <div class="items items-choose">
+        <img src="maria.jpg" alt="Maria de Almeida" />
+        <blockquote>
+          <p class="testimonial-text">
+            "1111 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Earum explicabo accusantium eaque reiciendis totam voluptas alias
+            nostrum repellendus iusto commodi veritatis fuga voluptate sunt cum,
+            maiores ratione quae! Sapiente, id!"
+          </p>
+          <p class="testimonial-author">Maria de Almeida</p>
+          <p class="testimonial-job">Product Manager at EDP Comercial</p>
+        </blockquote>
+      </div>
+      <div class="items">
+        <img src="maria.jpg" alt="Maria de Almeida" />
+        <blockquote>
+          <p class="testimonial-text">
+            "2222 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Earum explicabo accusantium eaque reiciendis totam voluptas alias
+            nostrum repellendus iusto commodi veritatis fuga voluptate sunt cum,
+            maiores ratione quae! Sapiente, id!"
+          </p>
+          <p class="testimonial-author">Maria de Almeida</p>
+          <p class="testimonial-job">Product Manager at EDP Comercial</p>
+        </blockquote>
+      </div>
+      <div class="items">
+        <img src="maria.jpg" alt="Maria de Almeida" />
+        <blockquote>
+          <p class="testimonial-text">
+            "3333 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Earum explicabo accusantium eaque reiciendis totam voluptas alias
+            nostrum repellendus iusto commodi veritatis fuga voluptate sunt cum,
+            maiores ratione quae! Sapiente, id!"
+          </p>
+          <p class="testimonial-author">Maria de Almeida</p>
+          <p class="testimonial-job">Product Manager at EDP Comercial</p>
+        </blockquote>
+      </div>
+      <div class="items">
+        <img src="maria.jpg" alt="Maria de Almeida" />
+        <blockquote>
+          <p class="testimonial-text">
+            "4444 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Earum explicabo accusantium eaque reiciendis totam voluptas alias
+            nostrum repellendus iusto commodi veritatis fuga voluptate sunt cum,
+            maiores ratione quae! Sapiente, id!"
+          </p>
+          <p class="testimonial-author">Maria de Almeida</p>
+          <p class="testimonial-job">Product Manager at EDP Comercial</p>
+        </blockquote>
+      </div>
+      <button class="btn btn-left">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          class="btn-icon"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 19.5 8.25 12l7.5-7.5"
+          />
+        </svg>
+      </button>
+      <button class="btn btn-right">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="btn-icon"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m8.25 4.5 7.5 7.5-7.5 7.5"
+          />
+        </svg>
+      </button>
+      <div class="dots">
+        <button class="dot dot-choose">&nbsp;</button>
+        <button class="dot">&nbsp;</button>
+        <button class="dot">&nbsp;</button>
+        <button class="dot">&nbsp;</button>
+      </div>
+    </div>
+    <script>
+      let dotIndex = 0;
+      function getDotIndex() {
+        document.querySelectorAll(".dot").forEach((element, index) => {
+          if (element.classList.contains("dot-choose")) {
+            dotIndex = index;
+          }
+        });
+        return dotIndex;
+      }
+
+      document.querySelector(".btn-left").addEventListener("click", () => {
+        let i = getDotIndex();
+        document.querySelectorAll(".dot").forEach((element, index) => {
+          if (element.classList.contains("dot-choose")) {
+            element.classList.remove("dot-choose");
+          }
+          if (i - 1 < 0) {
+            i = 4;
+          }
+          if (index === i - 1) {
+            element.classList.add("dot-choose");
+          }
+        });
+
+        document.querySelectorAll(".items").forEach((item, indexItem) => {
+          if (item.classList.contains("items-choose")) {
+            item.classList.remove("items-choose");
+          }
+          if (i - 1 < 0) {
+            i = 4;
+          }
+          if (indexItem === i - 1) {
+            item.classList.add("items-choose");
+          }
+        });
+      });
+
+      document.querySelector(".btn-right").addEventListener("click", () => {
+        let j = (i = getDotIndex());
+        console.log(i);
+        document.querySelectorAll(".dot").forEach((element, index) => {
+          if (element.classList.contains("dot-choose")) {
+            element.classList.remove("dot-choose");
+          }
+          if (index == i) {
+          }
+          if (i >= 3) {
+            i = -1;
+          }
+          if (index === i + 1) {
+            element.classList.add("dot-choose");
+          }
+        });
+
+        document.querySelectorAll(".items").forEach((item, indexItem) => {
+          if (item.classList.contains("items-choose")) {
+            item.classList.remove("items-choose");
+          }
+
+          if (j >= 3) {
+            j = -1;
+          }
+          if (indexItem === j + 1) {
+            item.classList.add("items-choose");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
