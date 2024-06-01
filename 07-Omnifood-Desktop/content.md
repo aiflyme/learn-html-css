@@ -126,3 +126,17 @@ Careers
 Recipe directory
 Help center
 Privacy & terms
+
+######
+
+## Section
+
+- Logo + Navigation
+- Hero
+- Featured in
+- How ti works
+- Meals (and List of diets)
+- Testimoials + Gallery
+- Pricing + features
+- CTA
+- Footer
